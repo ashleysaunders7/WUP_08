@@ -103,6 +103,6 @@ Best to worst
 5. Head width         ARsrd: 0.60         RST: 76.41     
 6. Age                ARsrd:0.55          RST: 81.47
 
-With a very high Adjusted R Square and a low Residual Standard Error, the Chest model is ranked as the best. This is demonstrated by the other plots on the chestmodel graph being near the line. The plots will become more and farther from the line as we move down the list from worst to best.
+With a very high Adjusted R Square and a low Residual Standard Error, the Chest model is ranked as the best. This is demonstrated by the other plots on the chestmodel graph being near the line. The plots will become more and farther from the line as we move down the list from worst to best. Overaqll, it is clear the chestmodel was best.
 
 
