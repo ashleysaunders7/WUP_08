@@ -57,6 +57,7 @@ Best to worst
 
 The Headlen model is better than the agemodel regardless of the scattered plots. The Adjusted R-Squared is higher at 0.69 and the agemodel at 0.55.
 
+## Model WEIGHT ~ HEADWTH 
 ```{r}
 headwthmodel <- lm(WEIGHT~AGE,data=BEARS)
 plot(WEIGHT~HEADWTH,data=BEARS)
@@ -70,6 +71,9 @@ Best to worst
 3. Head width         ARsrd: 0.60         RST: 76.41     
 4. Age                ARsrd:0.55          RST: 81.47       
 
+Headwthmodel has a high Residual standard error of 76.41, which is lower than the agemodel.
+
+## Model WEIGHT ~ LENGTH 
 ```{r}
 lengthmodel <- lm(WEIGHT~LENGTH,data=BEARS)
 plot(WEIGHT~LENGTH,data=BEARS)
