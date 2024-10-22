@@ -41,7 +41,7 @@ summary.lm(agemodel)
 1. Neck     ARsrd: 0.87     RST: 43.91
 2. Age      ARsrd: 0.55     RST: 81.47
 
-The agemodel graph is clearly close to the line, while the simp graph is far from it.
+The agemodel graph is clearly close to the line, while the simp graph is far from it.This makdes the agemodel ranked lower. 
 
 ```{r}
 Headlenmodel <- lm(WEIGHT~HEADLEN,data=BEARS)
