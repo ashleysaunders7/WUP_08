@@ -87,6 +87,8 @@ Best to worst
 4. Head width         ARsrd: 0.60         RST: 76.41     
 5. Age                ARsrd:0.55          RST: 81.47
 
+Lengthmodel has a. ARsrqd of 0.74, which is higher than the headlen model. Still not better than the simp model though. 
+
 ```{r}
 chestmodel <- lm(WEIGHT~CHEST,data=BEARS)
 plot(WEIGHT~CHEST,data=BEARS)
