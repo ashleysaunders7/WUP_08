@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ## make a simple regression model
 
 ```{r}
-bears <- read.csv(file="BEARS.csv",header = TRUE)
+BEARS <- read.csv(file="BEARS.csv",header = TRUE)
 #adjust factors to be factors
 bears$SEX<- as.factor(bears$SEX)
 bears$MONTH<- as.factor(bears$MONTH)
@@ -21,12 +21,82 @@ bears$MONTH<- as.factor(bears$MONTH)
 ## Model WEIGHT ~ NECK  this is an example  
 
 ```{r}
-simp <- lm(WEIGHT~NECK,data=bears)
-plot(WEIGHT~NECK,data=bears)
+simp <- lm(WEIGHT~NECK,data=BEARS)
+plot(WEIGHT~NECK,data=BEARS)
 abline(simp)
 summary.lm(simp)
 ```
 
 
 ## Compare all models that predict WEIGHT other than NECK. Then order them from worst to best by its value of Adjusted-Rsquared (bigger is better), or by RSE (residual standard error) where smaller is better. 
+
+## Model WEIGHT ~ AGE    
+```{r}
+agemodel <- lm(WEIGHT~AGE,data=BEARS)
+plot(WEIGHT~AGE,data=BEARS)
+abline(simp)
+summary.lm(agemodel)
+```
+
+1. Neck     ARsrd: 0.87     RST: 43.91
+2. Age      ARsrd: 0.55     RST: 81.47
+
+The agemodel graph is clearly close to the line, while the simp graph is far from it.
+
+```{r}
+Headlenmodel <- lm(WEIGHT~HEADLEN,data=BEARS)
+plot(WEIGHT~HEADLEN,data=BEARS)
+abline(Headlenmodel)
+summary.lm(Headlenmodel)
+```
+
+Best to worst
+1. Neck.      RSsqrd: 0.87.      RST: 43.91
+2. Headlen.   RSsrqd: 0.69.      RST: 67.81
+3. Age.       RSsrqd: 0.55.      RST: 81.47
+
+The Headlen model is better than the agemodel regardless of the scattered plots. The Adjusted R-Squared is higher at 0.69 and the agemodel at 0.55.
+
+```{r}
+headwthmodel <- lm(WEIGHT~AGE,data=BEARS)
+plot(WEIGHT~HEADWTH,data=BEARS)
+abline(headwthmodel)
+summary.lm(headwthmodel)
+```
+
+Best to worst
+1. Neck               ARsrd: 0.87         RST: 43.91       
+2. Head length        ARsrd: 0.69         RST: 67.81    
+3. Head width         ARsrd: 0.60         RST: 76.41     
+4. Age                ARsrd:0.55          RST: 81.47       
+
+```{r}
+lengthmodel <- lm(WEIGHT~LENGTH,data=BEARS)
+plot(WEIGHT~LENGTH,data=BEARS)
+abline(lengthmodel)
+summary.lm(lengthmodel)
+```
+Best to worst
+1. Neck               ARsrd: 0.87         RST: 43.91 
+2. Length             ARsrd: 0.74        vRST: 61.83
+3. Head length        ARsrd: 0.69         RST: 67.81    
+4. Head width         ARsrd: 0.60         RST: 76.41     
+5. Age                ARsrd:0.55          RST: 81.47
+
+```{r}
+chestmodel <- lm(WEIGHT~CHEST,data=BEARS)
+plot(WEIGHT~CHEST,data=BEARS)
+abline(chestmodel)
+summary.lm(chestmodel)
+```
+Best to worst
+1. Chest              ARsrd: 0.92         RST: 33.08
+2. Neck               ARsrd: 0.87         RST: 43.91 
+3. Length             ARsrd: 0.74         RST: 61.83
+4. Head length        ARsrd: 0.69         RST: 67.81    
+5. Head width         ARsrd: 0.60         RST: 76.41     
+6. Age                ARsrd:0.55          RST: 81.47
+
+With a very high Adjusted R Square and a low Residual Standard Error, the Chest model is ranked as the best. This is demonstrated by the other plots on the chestmodel graph being near the line. The plots will become more and farther from the line as we move down the list from worst to best.
+
 
